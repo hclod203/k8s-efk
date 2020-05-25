@@ -1,9 +1,13 @@
-$ helm install elasticsearch stable/elasticsearch wait for few minutes..
+sudo snap install helm --classic
 
-$ kubectl apply -f .\fluentd-daemonset-elasticsearch.yaml
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 
-$ helm install kibana stable/kibana -f kibana-values.yaml
+helm install elasticsearch stable/elasticsearch wait for few minutes..
 
-$ kubectl apply -f .\counter.yaml
+kubectl apply -f .\fluentd-daemonset-elasticsearch.yaml
+
+helm install kibana stable/kibana -f kibana-values.yaml
+
+kubectl apply -f .\counter.yaml
 
 Open Kibana dashboard.
